@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>snow</title>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+			background: #000;
+        }
+        .custom_class {
+            color: #fff;
+            position: absolute;
+            top: -20px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh);
+            }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+	<script>
+    // hieu ung tuyet roi - toandn////
+    // comment neu het mua dong :)) //
+    /////////////////////////////////
+    let font_arr = ['fa-tint', 'fa-snowflake', 'fa-snowman', 'fa-star', 'fa-tree-christmas', 'fa-tree-alt'];
+    let st = Math.floor(Math.random() * font_arr.length);
+    let font = font_arr[st];
+    console.log(font);
+    function createSnowFlake() {
+        const snow_flake = document.createElement('i');
+        snow_flake.classList.add('fas');
+        snow_flake.classList.add(font);
+        snow_flake.classList.add("custom_class");
+        snow_flake.style.left = Math.random() * window.innerWidth + 'px';
+        snow_flake.style.animationDuration = Math.random() * 3 + 2 + 's'; // between 2 - 5 seconds
+        snow_flake.style.opacity = Math.random();
+        snow_flake.style.fontSize = Math.random() * 10 + 10 + 'px';
+
+        document.body.appendChild(snow_flake);
+
+        setTimeout(() => {
+            snow_flake.remove();
+        }, 5000)
+    }
+    setInterval(createSnowFlake, 50);
+    // end //
+</script>
+</body>
+</html>
